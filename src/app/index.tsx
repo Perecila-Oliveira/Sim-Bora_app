@@ -1,5 +1,5 @@
-import CadastroScreen from "../screens/CadastroScreen";
+import ConfirmacaoScreen from "../screens/ConfirmacaoScreen";
 
 export default function Home() {
-  return <CadastroScreen />;
+  return <ConfirmacaoScreen />;
 }

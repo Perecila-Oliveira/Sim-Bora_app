@@ -1,6 +1,41 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
 
 export default function LoginScreen() {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
+  async function fazerLogin() {
+    try {
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
+
+      Alert.alert(
+        "Sucesso",
+        "Login realizado com sucesso!"
+      );
+
+    } catch (error: any) {
+      Alert.alert(
+        "Erro",
+        error.message
+      );
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>SIM!Bora</Text>
@@ -9,6 +44,9 @@ export default function LoginScreen() {
         placeholder="E-mail"
         placeholderTextColor="#999"
         style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        autoCapitalize="none"
       />
 
       <TextInput
@@ -16,14 +54,17 @@ export default function LoginScreen() {
         placeholderTextColor="#999"
         secureTextEntry
         style={styles.input}
+        value={senha}
+        onChangeText={setSenha}
       />
 
-      <TouchableOpacity style={styles.botao}>
-        <Text style={styles.textoBotao}>Entrar</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <Text style={styles.link}>Criar Conta</Text>
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={fazerLogin}
+      >
+        <Text style={styles.textoBotao}>
+          Entrar
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -64,11 +105,6 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     textAlign: "center",
     fontWeight: "bold",
-  },
-
-  link: {
-    color: "#A7FF00",
-    textAlign: "center",
-    marginTop: 20,
+    fontSize: 16,
   },
 });
