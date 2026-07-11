@@ -29,7 +29,7 @@ export default function ConfirmacaoScreen() {
 
       <TouchableOpacity
         style={styles.botao}
-       onPress={() => router.replace("/" as never)}
+       onPress={() => router.replace("/home" as never)}
       >
         <Text style={styles.textoBotao}>
           Voltar ao Início
