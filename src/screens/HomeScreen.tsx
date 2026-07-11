@@ -1,14 +1,15 @@
 import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
+
+import { router } from "expo-router";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-
       <Text style={styles.logo}>
         SIM!Bora
       </Text>
@@ -18,41 +19,40 @@ export default function HomeScreen() {
       </Text>
 
       <View style={styles.card}>
-
         <Text style={styles.nomeEvento}>
           Creative Week 2026
         </Text>
 
         <Text style={styles.info}>
-            Arte e Criatividade
+          🎨 Arte e Criatividade
         </Text>
 
         <Text style={styles.info}>
-            Escola Zion - São Gonçalo/RJ
+          📍 Escola Zion - São Gonçalo/RJ
         </Text>
 
         <Text style={styles.info}>
-            Gratuito
+          💰 Gratuito
         </Text>
 
         <Text style={styles.info}>
-            Classificação Livre
+          👨‍👩‍👧‍👦 Classificação Livre
         </Text>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => router.push("/detalhes" as never)}
+        >
           <Text style={styles.textoBotao}>
             Ver Mais
           </Text>
         </TouchableOpacity>
-
       </View>
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#121212",
@@ -108,5 +108,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
   },
-
 });

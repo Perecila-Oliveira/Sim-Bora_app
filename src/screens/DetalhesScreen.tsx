@@ -2,8 +2,10 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
+
+import { router } from "expo-router";
 
 export default function DetalhesScreen() {
   return (
@@ -11,39 +13,38 @@ export default function DetalhesScreen() {
       style={styles.container}
       contentContainerStyle={styles.content}
     >
-      <Text style={styles.logo}>Sim!Bora</Text>
+      <Text style={styles.logo}>SIM!Bora</Text>
 
       <Text style={styles.titulo}>
         Creative Week 2026
       </Text>
 
       <Text style={styles.info}>
-        Categoria: Arte e Criatividade
+        🎨 Categoria: Arte e Criatividade
       </Text>
 
       <Text style={styles.info}>
-        Escola Zion
+        📍 Escola Zion
       </Text>
 
       <Text style={styles.info}>
-        R. Silvio Romero, 50
+        📌 R. Silvio Romero, 50
       </Text>
 
       <Text style={styles.info}>
-        Alcântara - São Gonçalo/RJ
+        📍 Alcântara - São Gonçalo/RJ
       </Text>
 
       <Text style={styles.info}>
-        Gratuito
+        💰 Gratuito
       </Text>
 
       <Text style={styles.info}>
-        Classificação Livre
+        👨‍👩‍👧‍👦 Classificação Livre
       </Text>
 
       <Text style={styles.descricao}>
-        O maior evento de artes e criatividade
-        da América Latina. Vai Perder?
+        O maior evento de artes e criatividade da América Latina.
 
         {"\n\n"}
 
@@ -58,9 +59,12 @@ export default function DetalhesScreen() {
         profissionais do mercado.
       </Text>
 
-      <TouchableOpacity style={styles.botao}>
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={() => router.push("/confirmacao" as never)}
+      >
         <Text style={styles.textoBotao}>
-          Sim!Bora
+          SIM!Bora
         </Text>
       </TouchableOpacity>
     </ScrollView>

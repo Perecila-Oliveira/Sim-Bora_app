@@ -5,10 +5,11 @@ import {
   View,
 } from "react-native";
 
+import { router } from "expo-router";
+
 export default function ConfirmacaoScreen() {
   return (
     <View style={styles.container}>
-
       <Text style={styles.icone}>
         ✅
       </Text>
@@ -26,18 +27,19 @@ export default function ConfirmacaoScreen() {
         Nos vemos na Escola Zion!
       </Text>
 
-      <TouchableOpacity style={styles.botao}>
+      <TouchableOpacity
+        style={styles.botao}
+       onPress={() => router.replace("/" as never)}
+      >
         <Text style={styles.textoBotao}>
           Voltar ao Início
         </Text>
       </TouchableOpacity>
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#121212",
@@ -80,5 +82,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
   },
-
 });

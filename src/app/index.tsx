@@ -1,5 +1,5 @@
-import ConfirmacaoScreen from "../screens/ConfirmacaoScreen";
+import HomeScreen from "../screens/HomeScreen";
 
 export default function Home() {
-  return <ConfirmacaoScreen />;
+  return <HomeScreen />;
 }
