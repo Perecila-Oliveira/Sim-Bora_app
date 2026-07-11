@@ -20,31 +20,31 @@ export default function DetalhesScreen() {
       </Text>
 
       <Text style={styles.info}>
-        🎨 Categoria: Arte e Criatividade
+      Categoria: Arte e Criatividade
       </Text>
 
       <Text style={styles.info}>
-        📍 Escola Zion
+        Escola Zion
       </Text>
 
       <Text style={styles.info}>
-        📌 R. Silvio Romero, 50
+          R. Silvio Romero, 50
       </Text>
 
       <Text style={styles.info}>
-        📍 Alcântara - São Gonçalo/RJ
+        Alcântara - São Gonçalo/RJ
       </Text>
 
       <Text style={styles.info}>
-        💰 Gratuito
+         Gratuito
       </Text>
 
       <Text style={styles.info}>
-        👨‍👩‍👧‍👦 Classificação Livre
+        Classificação Livre
       </Text>
 
       <Text style={styles.descricao}>
-        O maior evento de artes e criatividade da América Latina.
+        O maior evento de artes e criatividade da América Latina.  Vai Perder?
 
         {"\n\n"}
 
@@ -64,7 +64,7 @@ export default function DetalhesScreen() {
         onPress={() => router.push("/confirmacao" as never)}
       >
         <Text style={styles.textoBotao}>
-          SIM!Bora
+          Sim!Bora
         </Text>
       </TouchableOpacity>
     </ScrollView>

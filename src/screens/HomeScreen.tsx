@@ -11,7 +11,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>
-        SIM!Bora
+        Sim!Bora
       </Text>
 
       <Text style={styles.titulo}>
@@ -24,19 +24,19 @@ export default function HomeScreen() {
         </Text>
 
         <Text style={styles.info}>
-          🎨 Arte e Criatividade
+          Arte e Criatividade
         </Text>
 
         <Text style={styles.info}>
-          📍 Escola Zion - São Gonçalo/RJ
+          Escola Zion - São Gonçalo/RJ
         </Text>
 
         <Text style={styles.info}>
-          💰 Gratuito
+          Gratuito
         </Text>
 
         <Text style={styles.info}>
-          👨‍👩‍👧‍👦 Classificação Livre
+          Classificação Livre
         </Text>
 
         <TouchableOpacity
