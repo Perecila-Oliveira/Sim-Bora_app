@@ -1,13 +1,14 @@
 import { useState } from "react";
 import {
-    Alert,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
+import { router } from "expo-router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 
@@ -17,6 +18,14 @@ export default function CadastroScreen() {
   const [senha, setSenha] = useState("");
 
   async function cadastrarUsuario() {
+    if (!nome || !email || !senha) {
+      Alert.alert(
+        "Erro",
+        "Preencha todos os campos."
+      );
+      return;
+    }
+
     try {
       await createUserWithEmailAndPassword(
         auth,
@@ -26,13 +35,18 @@ export default function CadastroScreen() {
 
       Alert.alert(
         "Sucesso",
-        `Usuário ${nome} cadastrado com sucesso!`
+        `Usuário ${nome} cadastrado com sucesso!`,
+        [
+          {
+            text: "OK",
+            onPress: () => router.replace("/login"),
+          },
+        ]
       );
 
       setNome("");
       setEmail("");
       setSenha("");
-
     } catch (error: any) {
       Alert.alert(
         "Erro",
@@ -43,7 +57,9 @@ export default function CadastroScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>SIM!Bora</Text>
+      <Text style={styles.logo}>
+        SIM!Bora
+      </Text>
 
       <TextInput
         placeholder="Nome"
@@ -59,8 +75,8 @@ export default function CadastroScreen() {
         style={styles.input}
         value={email}
         onChangeText={setEmail}
-        keyboardType="email-address"
         autoCapitalize="none"
+        keyboardType="email-address"
       />
 
       <TextInput
@@ -80,6 +96,20 @@ export default function CadastroScreen() {
           Criar Conta
         </Text>
       </TouchableOpacity>
+
+      <View style={styles.linhaLink}>
+        <Text style={styles.linkTexto}>
+          Já possui conta?
+        </Text>
+
+        <TouchableOpacity
+          onPress={() => router.replace("/login")}
+        >
+          <Text style={styles.linkAcao}>
+            Entrar
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -120,5 +150,24 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 16,
+  },
+
+  linhaLink: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+
+  linkTexto: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    marginRight: 5,
+  },
+
+  linkAcao: {
+    color: "#7B2CBF",
+    fontSize: 14,
+    fontWeight: "bold",
   },
 });

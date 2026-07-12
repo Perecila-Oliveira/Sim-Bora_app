@@ -1,4 +1,5 @@
 import {
+  Alert,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -7,11 +8,43 @@ import {
 
 import { router } from "expo-router";
 
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
+
 export default function HomeScreen() {
+
+  async function sair() {
+    Alert.alert(
+      "Sair",
+      "Deseja realmente sair da sua conta?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Sair",
+          onPress: async () => {
+            try {
+              await signOut(auth);
+
+              router.replace("/login");
+            } catch {
+              Alert.alert(
+                "Erro",
+                "Não foi possível sair da conta."
+              );
+            }
+          },
+        },
+      ]
+    );
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>
-        Sim!Bora
+        SIM!Bora
       </Text>
 
       <Text style={styles.titulo}>
@@ -41,13 +74,23 @@ export default function HomeScreen() {
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => router.push("/detalhes" as never)}
+          onPress={() =>
+            router.push("/detalhes")
+          }
         >
           <Text style={styles.textoBotao}>
             Ver Mais
           </Text>
         </TouchableOpacity>
       </View>
+
+      <TouchableOpacity
+        onPress={sair}
+      >
+        <Text style={styles.sair}>
+          Sair
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -107,5 +150,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 16,
+  },
+
+  sair: {
+    color: "#A7FF00",
+    textAlign: "center",
+    marginTop: 25,
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });

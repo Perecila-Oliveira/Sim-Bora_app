@@ -13,14 +13,24 @@ export default function DetalhesScreen() {
       style={styles.container}
       contentContainerStyle={styles.content}
     >
-      <Text style={styles.logo}>SIM!Bora</Text>
+      <TouchableOpacity
+        onPress={() => router.back()}
+      >
+        <Text style={styles.voltar}>
+          ← Voltar
+        </Text>
+      </TouchableOpacity>
+
+      <Text style={styles.logo}>
+        SIM!Bora
+      </Text>
 
       <Text style={styles.titulo}>
         Creative Week 2026
       </Text>
 
       <Text style={styles.info}>
-      Categoria: Arte e Criatividade
+        Categoria: Arte e Criatividade
       </Text>
 
       <Text style={styles.info}>
@@ -28,7 +38,7 @@ export default function DetalhesScreen() {
       </Text>
 
       <Text style={styles.info}>
-          R. Silvio Romero, 50
+        R. Silvio Romero, 50
       </Text>
 
       <Text style={styles.info}>
@@ -36,7 +46,7 @@ export default function DetalhesScreen() {
       </Text>
 
       <Text style={styles.info}>
-         Gratuito
+        Gratuito
       </Text>
 
       <Text style={styles.info}>
@@ -44,7 +54,8 @@ export default function DetalhesScreen() {
       </Text>
 
       <Text style={styles.descricao}>
-        O maior evento de artes e criatividade da América Latina.  Vai Perder?
+        O maior evento de artes e criatividade da
+        América Latina. Vai Perder?
 
         {"\n\n"}
 
@@ -61,7 +72,9 @@ export default function DetalhesScreen() {
 
       <TouchableOpacity
         style={styles.botao}
-        onPress={() => router.push("/confirmacao" as never)}
+        onPress={() =>
+          router.push("/confirmacao")
+        }
       >
         <Text style={styles.textoBotao}>
           Sim!Bora
@@ -80,6 +93,13 @@ const styles = StyleSheet.create({
   content: {
     padding: 20,
     paddingBottom: 40,
+  },
+
+  voltar: {
+    color: "#7B2CBF",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 20,
   },
 
   logo: {
