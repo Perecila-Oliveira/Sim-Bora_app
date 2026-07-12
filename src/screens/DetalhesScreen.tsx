@@ -1,13 +1,22 @@
 import {
+  Image,
+  Linking,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from "react-native";
 
 import { router } from "expo-router";
 
 export default function DetalhesScreen() {
+  function abrirSiteOficial() {
+    Linking.openURL(
+      "https://ztalent.escolazion.com/"
+    );
+  }
+
   return (
     <ScrollView
       style={styles.container}
@@ -21,54 +30,89 @@ export default function DetalhesScreen() {
         </Text>
       </TouchableOpacity>
 
-      <Text style={styles.logo}>
-        SIM!Bora
-      </Text>
+      <Image
+        source={require("../../assets/evento_zion.png")}
+        style={styles.banner}
+      />
 
       <Text style={styles.titulo}>
-        Creative Week 2026
+        ZTalent 2026
       </Text>
 
-      <Text style={styles.info}>
-        Categoria: Arte e Criatividade
+      <Text style={styles.categoria}>
+        Criatividade • Inovação • Tecnologia
       </Text>
 
-      <Text style={styles.info}>
-        Escola Zion
-      </Text>
+      <View style={styles.cardInfo}>
+        <Text style={styles.info}>
+          Escola ZION
+        </Text>
 
-      <Text style={styles.info}>
-        R. Silvio Romero, 50
-      </Text>
+        <Text style={styles.info}>
+          Av. Visconde do Rio Branco, 243
+        </Text>
 
-      <Text style={styles.info}>
-        Alcântara - São Gonçalo/RJ
-      </Text>
+        <Text style={styles.info}>
+          Centro • Niterói/RJ
+        </Text>
 
-      <Text style={styles.info}>
-        Gratuito
-      </Text>
+        <Text style={styles.info}>
+        12 de Julho de 2026
+        </Text>
 
-      <Text style={styles.info}>
-        Classificação Livre
+        <Text style={styles.info}>
+            Gratuito
+        </Text>
+
+        <Text style={styles.info}>
+            Classificação Livre
+        </Text>
+      </View>
+
+      <Text style={styles.subtitulo}>
+        Sobre o Evento
       </Text>
 
       <Text style={styles.descricao}>
-        O maior evento de artes e criatividade da
-        América Latina. Vai Perder?
+        O ZTalent 2026 da Escola ZION será realizado
+        neste domingo, 12 de julho.
 
         {"\n\n"}
 
-        Explore conteúdos sobre design,
-        cinema, jogos, música,
-        criatividade e portfólio.
+        O grande evento de criatividade e inovação,
+        que reúne alunos e empresas, ocorre
+        simultaneamente em diversas unidades,
+        incluindo a etapa conjunta das filiais de
+        Niterói e Alcântara.
 
         {"\n\n"}
 
-        Uma oportunidade para aprender,
-        criar conexões e conhecer
-        profissionais do mercado.
+        O encontro promete ser uma das maiores
+        vitrines para a indústria criativa da região,
+        com a apresentação de projetos práticos e
+        desafios avaliados por grandes profissionais
+        do mercado.
+
+        {"\n\n"}
+
+        As informações oficiais, horários detalhados
+        e programações podem ser acompanhados pelo
+        site oficial do ZTalent e pelos canais
+        oficiais da Escola ZION.
       </Text>
+
+      <Text style={styles.subtitulo}>
+        Mais Informações
+      </Text>
+
+      <TouchableOpacity
+        style={styles.botaoSite}
+        onPress={abrirSiteOficial}
+      >
+        <Text style={styles.textoBotaoSite}>
+          🌐 Site Oficial do ZTalent
+        </Text>
+      </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.botao}
@@ -99,42 +143,79 @@ const styles = StyleSheet.create({
     color: "#7B2CBF",
     fontSize: 16,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 15,
   },
 
-  logo: {
-    color: "#A7FF00",
-    fontSize: 40,
-    fontWeight: "bold",
-    textAlign: "center",
+  banner: {
+    width: "100%",
+    height: 220,
+    borderRadius: 15,
     marginBottom: 20,
   },
 
   titulo: {
     color: "#FFFFFF",
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: "bold",
+    textAlign: "center",
+  },
+
+  categoria: {
+    color: "#A7FF00",
+    fontSize: 16,
+    marginTop: 6,
     marginBottom: 20,
+    textAlign: "center",
+  },
+
+  cardInfo: {
+    backgroundColor: "#1E1E1E",
+    padding: 20,
+    borderRadius: 12,
+    marginBottom: 25,
+    alignItems: "center",
   },
 
   info: {
     color: "#FFFFFF",
-    fontSize: 16,
+    fontSize: 15,
     marginBottom: 10,
+    textAlign: "center",
+  },
+
+  subtitulo: {
+    color: "#FFFFFF",
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 15,
   },
 
   descricao: {
     color: "#FFFFFF",
     fontSize: 16,
-    marginTop: 20,
-    lineHeight: 24,
+    lineHeight: 26,
+    textAlign: "justify",
+    marginBottom: 25,
+  },
+
+  botaoSite: {
+    backgroundColor: "#7B2CBF",
+    padding: 14,
+    borderRadius: 12,
+    marginBottom: 15,
+  },
+
+  textoBotaoSite: {
+    color: "#FFFFFF",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 16,
   },
 
   botao: {
     backgroundColor: "#A7FF00",
-    marginTop: 30,
-    padding: 15,
-    borderRadius: 10,
+    padding: 16,
+    borderRadius: 12,
   },
 
   textoBotao: {

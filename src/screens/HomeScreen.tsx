@@ -1,5 +1,6 @@
 import {
   Alert,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -12,7 +13,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 
 export default function HomeScreen() {
-
   async function sair() {
     Alert.alert(
       "Sair",
@@ -43,9 +43,11 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>
-        SIM!Bora
-      </Text>
+      <Image
+        source={require("../../assets/logo.png")}
+        style={styles.logo}
+        resizeMode="contain"
+      />
 
       <Text style={styles.titulo}>
         Evento em Destaque
@@ -53,15 +55,23 @@ export default function HomeScreen() {
 
       <View style={styles.card}>
         <Text style={styles.nomeEvento}>
-          Creative Week 2026
+          ZTalent 2026
         </Text>
 
         <Text style={styles.info}>
-          Arte e Criatividade
+          Criatividade • Inovação • Tecnologia
         </Text>
 
         <Text style={styles.info}>
-          Escola Zion - São Gonçalo/RJ
+          Escola ZION
+        </Text>
+
+        <Text style={styles.info}>
+          Centro • Niterói/RJ
+        </Text>
+
+        <Text style={styles.info}>
+          12 de Julho de 2026
         </Text>
 
         <Text style={styles.info}>
@@ -74,9 +84,7 @@ export default function HomeScreen() {
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() =>
-            router.push("/detalhes")
-          }
+          onPress={() => router.push("/detalhes")}
         >
           <Text style={styles.textoBotao}>
             Ver Mais
@@ -84,9 +92,7 @@ export default function HomeScreen() {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity
-        onPress={sair}
-      >
+      <TouchableOpacity onPress={sair}>
         <Text style={styles.sair}>
           Sair
         </Text>
@@ -104,10 +110,9 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    color: "#A7FF00",
-    fontSize: 40,
-    fontWeight: "bold",
-    textAlign: "center",
+    width: 280,
+    height: 110,
+    alignSelf: "center",
     marginBottom: 20,
   },
 
@@ -129,13 +134,15 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 15,
+    textAlign: "center",
   },
 
   info: {
     color: "#FFFFFF",
     fontSize: 16,
     marginBottom: 10,
+    textAlign: "center",
   },
 
   botao: {

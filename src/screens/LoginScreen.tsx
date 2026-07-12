@@ -2,6 +2,7 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   Alert,
+  Image,
   StyleSheet,
   Text,
   TextInput,
@@ -102,9 +103,11 @@ export default function LoginScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>
-        SIM!Bora
-      </Text>
+      <Image
+        source={require("../../assets/logo.png")}
+        style={styles.logo}
+        resizeMode="contain"
+      />
 
       <TextInput
         placeholder="E-mail"
@@ -174,11 +177,10 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    fontSize: 40,
-    fontWeight: "bold",
-    color: "#A7FF00",
-    textAlign: "center",
-    marginBottom: 40,
+    width: 260,
+    height: 100,
+    alignSelf: "center",
+    marginBottom: 35,
   },
 
   input: {
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
   },
 
   linkAcao: {
-    color: "#A7FF00",
+    color: "#7B2CBF",
     fontSize: 14,
     fontWeight: "bold",
   },
