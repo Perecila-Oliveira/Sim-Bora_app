@@ -19,14 +19,14 @@ export default function BoasVindasScreen() {
 
   return (
     <ImageBackground
-      source={require("../../assets/background.png")}
+      source={require("../../assets/background.jpg")}
       style={styles.background}
       resizeMode="cover"
     >
       <View style={styles.overlay}>
         <View style={styles.topo}>
           <Image
-            source={require("../../assets/logo.png")}
+            source={require("../../assets/logo.jpg")}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -47,7 +47,7 @@ export default function BoasVindasScreen() {
           activeOpacity={0.8}
         >
           <Image
-            source={require("../../assets/borinha-instagram.png")}
+            source={require("../../assets/borinha-instagram.jpg")}
             style={styles.borinha}
             resizeMode="contain"
           />

@@ -59,7 +59,7 @@ export default function CadastroScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../assets/logo.png")}
+        source={require("../../assets/logo.jpg")}
         style={styles.logo}
         resizeMode="contain"
       />

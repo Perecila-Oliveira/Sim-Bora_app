@@ -31,7 +31,7 @@ export default function DetalhesScreen() {
       </TouchableOpacity>
 
       <Image
-        source={require("../../assets/evento_zion.png")}
+        source={require("../../assets/evento_zion.jpg")}
         style={styles.banner}
       />
 
